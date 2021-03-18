@@ -1,7 +1,3 @@
-import requests
-import zipfile
-import shutil
-import os
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
@@ -138,7 +134,7 @@ if __name__ == "__main__":
         if Value >= 10:
             print(Key,Value)
 
-    # Display languages that appear in all 10 serveys
+    # Display languages that appear in all 10 surveys
     print()
     print('Languages appearing in 4-9 surveys: ')
     print()
@@ -178,7 +174,8 @@ if __name__ == "__main__":
     plt.plot(Years, PHP)
     plt.plot(Years, Python)
     plt.plot(Years, SQL)
-    plt.legend(['C', 'CSharp', 'CPP', 'Java', 'JavaScript', 'PHP', 'Python', 'SQL'])
+    plt.plot(Years, Ruby)
+    plt.legend(['C','CSharp', 'CPP', 'Java', 'JavaScript', 'PHP', 'Python', 'SQL', 'Ruby'])
     plt.xlabel('Year')
     plt.ylabel('% Responses')
     plt.title('Stack Exchange Language Survey')
