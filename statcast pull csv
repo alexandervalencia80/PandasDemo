@@ -1,0 +1,21 @@
+from pybaseball import statcast
+import pandas
+import math
+import csv
+from functools import reduce
+
+list_months = ['03','04','05','06','07','08','09','10','11','12']
+list_years = ['15','16','17','18','19','20']
+
+list_dfs = []
+
+for year in list_years:
+    for month in list_months[0:-1]:
+        start = '20' + year + '-' + month + '-01'
+        end = '20' + year + '-' + list_months[list_months.index(month) + 1] + '-01'
+        data = statcast(start_dt = start, end_dt = end)
+        list_dfs.append(data)
+
+finalDf = pandas.concat(list_dfs)
+finalDf = finalDf.drop_duplicates()
+finalDf.to_csv('pybaseballCSV.csv')
